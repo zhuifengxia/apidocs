@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="/css/reset.css" type="text/css" rel="stylesheet" />
+<link href="/css/admin.css" type="text/css" rel="stylesheet" />
+<script src="/Javascript/jquery-1.9.1.min.js" type="text/javascript"></script>
+<link rel="stylesheet" href="/css/tab.css" />
+<title>项目管理列表</title>
+</head>
+<body >
+<div style="width:1520px;height:600px;">
+ <?php require APPLICATION_PATH.'/views/scripts/adminlogin/head.phtml';?>  
+<div style="float:left;">
+  <?php require APPLICATION_PATH.'/views/scripts/adminlogin/left.phtml';?>         
+</div>
+<div class="clear:both;"></div>
+<div style="float:left;background:#F0F8FF;width:87.4%;height:900px;" >
+<table>
+<tr>
+<td height="30" >&nbsp;&nbsp;当前位置：<b><a href="/Projects/userlst">用户列表</a>--<?=$this->edittype==0?"用户添加":"用户编辑"?></b></td>
+</tr>
+</table>
+<hr />
+<br/>
+<div style="font-size: 14px"> 
+<form action="/Projects/usereditsave?edittype=<?=$this->edittype?>" method="post">    
+ <table class="mm" style="width:70%; margin:0 auto;">
+ <tr>
+ <td>用户名</td>
+ <td>
+ <input type="hidden" id="userid" name="userid" value="<?=$this->userdetail['Medi_UserID']?>"/>
+ <input type="text" id="username" name="username" style="width:370px;height:25px;" value="<?=$this->userdetail['Medi_UserName']?>"/></td>
+ </tr>
+ <tr>
+ <td>密码</td>
+ <td><input type="text" id="userpwd" name="userpwd" style="width:370px;height:25px;" value="<?=$this->userdetail['Medi_TruePwd']?>"/></td>
+ </tr>
+ <tr>
+ <td colspan="2">
+ <input type="submit" class="btn" value="<?=$this->edittype==0?"添加":"确认修改"?>"/>
+ <input type="button" class="btn" value="返回"/>
+ </td>
+ </tr>
+ </table> 
+ </form>
+  <div style="padding-top:10px;margin-left:200px;"><?=$this->result?></div>
+</div>
+<div class="clear:both;"></div>
+</div>
+</div>
+</body>
+</html>

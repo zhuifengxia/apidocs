@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="/css/reset.css" type="text/css" rel="stylesheet" />
+<link href="/css/admin.css" type="text/css" rel="stylesheet" />
+<script src="/Javascript/jquery-1.9.1.min.js" type="text/javascript"></script>
+<link rel="stylesheet" href="/css/tab.css" />
+<title>数据库字典列表</title>
+<script type="text/javascript">
+ function btnsel()
+ {
+	 var selname=document.getElementById('selname').value;
+	 window.location.href="/Projects/projectlst?selname="+selname;
+ }
+</script> 
+</head>
+<body >
+<div style="width:1520px;height:600px;">
+ <?php require APPLICATION_PATH.'/views/scripts/adminlogin/head.phtml';?>  
+<div style="float:left;">
+  <?php require APPLICATION_PATH.'/views/scripts/adminlogin/left.phtml';?>         
+</div>
+<div class="clear:both;"></div>
+<div style="float:left;background:#F0F8FF;width:87.4%;height:900px;" >
+<table>
+<tr>
+<td height="30" >&nbsp;&nbsp;当前位置：<b><?=$this->projectname?>项目--数据库字典列表</b></td>
+</tr>
+</table>
+<hr />
+<div style="width:985px;height:40px;line-height:40px;margin-left:50px;font-size:18px;font-weight:bold;color:#0B54AD;float:left">数据库字典列表(<?=count($this->datalst)?>)</div>
+<?php if($this->loginuser['Medi_Level']==1){?>
+<div style="width:150px;margin-top:20px;height:32px;overflow:hidden;"><a class="btn" href="/Data/newdata?proid=<?=$this->projectid?>&proname=<?=$this->projectname?>" style="border:1px solid #C7C7C7;color:black;background:#F0F0F0;height:30px;line-height:30px;display: block;">添加新数据库字典</a></div>
+<?php }?>
+<br/><br/><br/><br/>
+<div style="font-size: 14px">       
+ <table class="mm" style="width:70%; margin:0 auto;">
+  <tr>
+  <th>数据库字典名称</th><th>编写人</th><th>创建时间</th><th>更新时间</th><th>操作</th>
+  </tr>
+  <?php foreach($this->datalst as $data){?>
+  <tr>
+  <td><?=$data['Medi_DataName']?></td>
+  <td><?=$data['Medi_DataCreatName']?></td>
+  <td><?=$data['Medi_DataCreatTime']?></td>
+  <td><?=$data['Medi_DataUpdateTime']?></td>
+ <td><a href="/Data/tablelst?dataid=<?=$data['Medi_DataID']?>&projectid=<?=$this->projectid?>&projectname=<?=$this->projectname?>">查看</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/Projects/competencedel?competenceid=<?=$data['Medi_DataID']?>">导出word</a></td>
+  </tr>
+  <?php }?>
+   </table> 
+  <div style="padding-top:10px;margin-left:200px;"><?=$this->result?></div>
+</div>
+<div class="clear:both;"></div>
+</div>
+</div>
+</body>
+</html>

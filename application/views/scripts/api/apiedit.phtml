@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="/css/reset.css" type="text/css" rel="stylesheet" />
+<link href="/css/admin.css" type="text/css" rel="stylesheet" />
+<script src="/Javascript/jquery-1.9.1.min.js" type="text/javascript"></script>
+<link rel="stylesheet" href="/css/tab.css" />
+<title>项目管理列表</title>
+<style type="text/css">
+.td
+{
+	 text-align:right;
+}
+.td2
+{
+	text-align:left;
+}
+</style>
+<script type="text/javascript">
+function removeRow(src)
+{
+ var oRow = src.parentElement.parentElement;  //获取当前事件的父节点
+ document.getElementById("par1table").deleteRow(oRow.rowIndex);  //删除当前列
+} 
+function addRow()
+{
+	  var row=document.getElementById("par1table").rows.length;
+	  var newRow = document.getElementById("par1table").insertRow(row);
+
+//得到表的对象并插入一行，下面是插入了行以后，填充相应的列节点，如下面所示
+  var oCell = newRow.insertCell(0);//插入列的节点
+  oCell.innerHTML = "<input type='text' name='par1name[]' value='name'/>";//列里面填充的值，innerHtml值列内的所有元素    
+ oCell = newRow.insertCell(1);
+ oCell.innerHTML="<input type='text' name='par1info[]' value='info'/>&nbsp;&nbsp;<a href='javascript:void(0)' onclick='removeRow(this);'><img src='/images/tubiao_del.png' title='删除'></img></a>";
+ oCell=newRow.insertCell(1);
+ oCell.innerHTML = "<input type='text' name='par1type[]' value='type'/>";
+}
+
+function removeRow2(src)
+{
+ var oRow = src.parentElement.parentElement;  //获取当前事件的父节点
+ document.getElementById("untable").deleteRow(oRow.rowIndex);  //删除当前列
+} 
+function addRow2()
+{
+	  var row=document.getElementById("untable").rows.length;
+	  var newRow = document.getElementById("untable").insertRow(row);
+
+//得到表的对象并插入一行，下面是插入了行以后，填充相应的列节点，如下面所示
+  var oCell = newRow.insertCell(0);//插入列的节点
+  oCell.innerHTML = "<input type='text' name='unname[]' value='name'/>";//列里面填充的值，innerHtml值列内的所有元素    
+ oCell = newRow.insertCell(1);
+ oCell.innerHTML="<input type='text' name='uninfo[]' value='info'/>&nbsp;&nbsp;<a href='javascript:void(0)' onclick='removeRow2(this);'><img src='/images/tubiao_del.png' title='删除'></img></a>";
+ oCell=newRow.insertCell(1);
+ oCell.innerHTML="<input type='text' name='unvalue[]' value='value'/>";
+ oCell=newRow.insertCell(1);
+ oCell.innerHTML = "<input type='text' name='untypep[]' value='type'/>";
+}
+
+
+function removeRow3(src)
+{
+ var oRow = src.parentElement.parentElement;  //获取当前事件的父节点
+ document.getElementById("par2table").deleteRow(oRow.rowIndex);  //删除当前列
+} 
+function addRow3()
+{
+	  var row=document.getElementById("par2table").rows.length;
+	  var newRow = document.getElementById("par2table").insertRow(row);
+
+//得到表的对象并插入一行，下面是插入了行以后，填充相应的列节点，如下面所示
+  var oCell = newRow.insertCell(0);//插入列的节点
+  oCell.innerHTML = "<input type='text' name='par2name[]' value='name'/>";//列里面填充的值，innerHtml值列内的所有元素    
+ oCell = newRow.insertCell(1);
+ oCell.innerHTML="<input type='text' name='par2info[]' value='info'/>&nbsp;&nbsp;<a href='javascript:void(0)' onclick='removeRow3(this);'><img src='/images/tubiao_del.png' title='删除'></img></a>";
+ oCell=newRow.insertCell(1);
+ oCell.innerHTML = "<input type='text' name='par2type[]' value='type'/>";
+}
+</script>
+</head>
+<body>
+<div style="width:1520px;height:600px;">
+ <?php require APPLICATION_PATH.'/views/scripts/adminlogin/head.phtml';?>  
+<div style="float:left;">
+  <?php require APPLICATION_PATH.'/views/scripts/adminlogin/left.phtml';?>         
+</div>
+<div class="clear:both;"></div>
+<div style="float:left;background:#F0F8FF;width:87.4%;height:auto;" >
+<table>
+<tr>
+<td height="30" >&nbsp;&nbsp;&nbsp;&nbsp;当前位置：<b>
+<a href="/Api/apilst?interfaceid=<?=$this->interfaceid?>&projectid=<?=$this->projectid?>">接口列表</a>--<?=$this->apidetail['Medi_ApiName']==""?"添加接口":$this->apidetail['Medi_ApiName']?></b></td>
+</tr>
+</table>
+<hr />
+<br/>
+<div style="font-size: 14px"> 
+<form action="/Api/apieditsave?edittype=<?=$this->edittype?>" method="post"> 
+<input type="hidden" id="apiid" name="apiid" value="<?=$this->apidetail['Medi_ApiID']?>"/>   
+<input type="hidden" id="projectid" name="projectid" value="<?=$this->projectid?>"/>   
+<input type="hidden" id="interfaceid" name="interfaceid" value="<?=$this->interfaceid?>"/>   
+ <table class="mm" style="width:90%;">
+ <tr>
+ <td class="td">接口名称&nbsp;&nbsp;&nbsp;&nbsp;</td>
+ <td class="td2">&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="apiname" name="apiname" value="<?=$this->apidetail['Medi_ApiName']?>"/></td>
+ <td class="td">所属模块&nbsp;&nbsp;&nbsp;&nbsp;</td>
+ <td class="td2">&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="apibelong" name="apibelong" value="<?=$this->apidetail['Medi_ApiBelongs']?>"/></td>
+ </tr>
+ <tr>
+ <td class="td">编写人&nbsp;&nbsp;&nbsp;&nbsp;</td>
+ <td class="td2">&nbsp;&nbsp;&nbsp;&nbsp;<?=$this->apidetail['Medi_ApiCreateName']?></td>
+ <td class="td">创建时间&nbsp;&nbsp;&nbsp;&nbsp;</td>
+ <td class="td2">&nbsp;&nbsp;&nbsp;&nbsp;<?=$this->apidetail['Medi_ApiCreateTime']?></td>
+ </tr>
+  <tr>
+ <td class="td">最近修改人&nbsp;&nbsp;&nbsp;&nbsp;</td>
+ <td class="td2">&nbsp;&nbsp;&nbsp;&nbsp;<?=$this->apidetail['Medi_ApiUpdateName']?></td>
+ <td class="td">最近修改时间&nbsp;&nbsp;&nbsp;&nbsp;</td>
+ <td class="td2">&nbsp;&nbsp;&nbsp;&nbsp;<?=$this->apidetail['Medi_ApiUpdateTime']?></td>
+ </tr>
+  <tr>
+ <td class="td">接口作用&nbsp;&nbsp;&nbsp;&nbsp;</td>
+ <td colspan="3" class="td2">&nbsp;&nbsp;&nbsp;&nbsp;<textarea id="apiaction" name="apiaction" rows="2" cols="100"><?=$this->apidetail['Medi_ApiAction']?></textarea></td>
+ </tr>
+  <tr>
+ <td class="td">接口实例地址&nbsp;&nbsp;&nbsp;&nbsp;</td>
+ <td colspan="2" class="td2">&nbsp;&nbsp;&nbsp;&nbsp;<textarea id="apiurl" name="apiurl" rows="2" cols="80"><?=$this->apidetail['Medi_ApiUrl']?></textarea></td>
+ <td><input type="button" value="测试接口" class="btn"/></td>
+ </tr>
+  <tr>
+ <td class="td">接口测试地址&nbsp;&nbsp;&nbsp;&nbsp;</td>
+ <td colspan="3" class="td2">&nbsp;&nbsp;&nbsp;&nbsp;<textarea id="apitesturl" name="apitesturl" rows="2" cols="80"><?=$this->apidetail['Medi_ApiTestUrl']?></textarea></td>
+ </tr>
+  <tr>
+ <td class="td">支持格式&nbsp;&nbsp;&nbsp;&nbsp;</td>
+ <td colspan="3" class="td2">&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="apiformat" name="apiformat" value="<?=$this->apidetail['Medi_ApiFormat']?>"/></td>
+ </tr>
+  <tr>
+ <td class="td">请求方式&nbsp;&nbsp;&nbsp;&nbsp;</td>
+ <td colspan="3" class="td2">&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="apirequest" name="apirequest" value="<?=$this->apidetail['Medi_ApiRequest']?>"/></td>
+ </tr>
+  <tr>
+ <td class="td">请求参数&nbsp;&nbsp;&nbsp;&nbsp;</td>
+ <td colspan="3">
+ 
+ <table style="width:90%;margin-left:20px;" id="par1table">
+ <tr>
+ <td colspan="4" class="td2">&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" onclick="addRow()"><img src="/images/tubiao_add.png" alt="添加" /></a></td>
+ </tr>
+ <tr>
+ <td>参数名</td><td>类型</td><td>说明</td>
+ </tr>
+ <?php foreach ($this->parameterdata as $par1){?>
+ <tr>
+ <td><input type="text" name="par1name[]" id="par1name<?=$par1['Medi_RequestID']?>" value="<?=$par1['Medi_RequestName']?>"/></td>
+ <td><input type="text" name="par1type[]" id="par1type<?=$par1['Medi_RequestID']?>" value="<?=$par1['Medi_RequestType']?>"/></td>
+ <td><input type="text" name="par1info[]" id="par1info<?=$par1['Medi_RequestID']?>" value="<?=$par1['Medi_RequestInfo']?>"/>&nbsp;&nbsp;
+ <a href='javascript:void(0)' onclick='removeRow(this);'><img src="/images/tubiao_del.png" alt="删除" /></a></td>
+ </tr>
+ <?php }?>
+ </table>
+ </td>
+ </tr>
+  <tr>
+ <td class="td">返回结果&nbsp;&nbsp;&nbsp;&nbsp;</td>
+ <td colspan="3" class="td2">&nbsp;&nbsp;&nbsp;&nbsp;
+ <textarea rows="2" cols="100" id="apiresult" name="apiresult"><?=$this->apidetail['Medi_ApiResult']?></textarea></td>
+ </tr>
+ <tr>
+ <td class="td">通用返回数据说明&nbsp;&nbsp;&nbsp;&nbsp;</td>
+ <td colspan="3">
+ 
+ <table style="width:90%;margin-left:30px;" id="untable">
+ <tr>
+ <td colspan="4" class="td2">&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" onclick="addRow2()"><img src="/images/tubiao_add.png" alt="添加" /></a></td>
+ </tr>
+ <tr><td>返回值字段</td><td>类型</td><td>value值</td><td>说明</td></tr>
+ <?php foreach($this->universaldata as $un){?>
+ <tr>
+ <td><input type="text" name="unname[]" id="unname<?=$un['Medi_CommonID']?>" value="<?=$un['Medi_CommonName']?>"/></td>
+ <td><input type="text" name="untypep[]" id="untype<?=$un['Medi_CommonID']?>" value="<?=$un['Medi_CommonType']?>"/></td>
+ <td><input type="text" name="unvalue[]" id="unvalue<?=$un['Medi_CommonID']?>" value="<?=$un['Medi_CommonValue']?>"/></td>
+ <td><input type="text" name="uninfo[]" id="uninfo<?=$un['Medi_CommonID']?>" value="<?=$un['Medi_CommonInfo']?>"/>&nbsp;&nbsp;
+ <a href="javascript:void(0)" onclick='removeRow2(this);'><img src="/images/tubiao_del.png" alt="删除" /></a>
+ </td>
+ </tr>
+ <?php }?>
+ </table>
+ </td>
+ </tr>
+ <tr>
+ <td class="td">返回具体字段信息说明&nbsp;&nbsp;&nbsp;&nbsp;</td>
+ <td colspan="3">
+
+ <table style="width:90%;margin-left:30px;" id="par2table">
+ <tr> <td colspan="4" class="td2">&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" onclick="addRow3();"><img src="/images/tubiao_add.png" alt="添加" /></a></td></tr>
+ <tr><td>字段名</td><td>类型</td><td>说明</td></tr>
+ <?php foreach($this->parameterdata2 as $par2){?>
+ <tr>
+ <td><input type="text" name="par2name[]" id="par2name<?=$par2['Medi_RequestID']?>" value="<?=$par2['Medi_RequestName']?>"/></td>
+ <td><input type="text" name="par2type[]" id="par2type<?=$par2['Medi_RequestID']?>" value="<?=$par2['Medi_RequestType']?>"/></td>
+ <td><input type="text" name="par2info[]" id="par2info<?=$par2['Medi_RequestID']?>" value="<?=$par2['Medi_RequestInfo']?>"/>&nbsp;&nbsp;
+ <a href="javascript:void(0)" onclick="removeRow3(this);"><img src="/images/tubiao_del.png" alt="删除" /></a>
+ </td>
+ </tr>
+ <?php }?>
+ </table>
+ </td>
+ </tr>
+ <tr>
+ <td colspan="4"><input type="submit" class="btn" value="保存" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ <a href="/Api/apilst?interfaceid=<?=$this->interfaceid?>&projectid=<?=$this->projectid?>" style="border:1px solid #C7C7C7;color:black;background:#F0F0F0">返回</a>
+ </td>
+ </tr>
+ </table> 
+ </form>
+  <div style="padding-top:10px;margin-left:200px;"><?=$this->result?></div>
+</div>
+<div class="clear:both;"></div>
+</div>
+</div>
+</body>
+</html>

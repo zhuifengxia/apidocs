@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>管理员后台登录</title>
+    <style type="text/css">
+    body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td {
+        margin:0;
+        padding:0;
+    }
+    body,button,input,select,textarea {
+        color: #4D4D4D;
+        font:12px/1.5 Geneva,Arial,Helvetica,sans-serif;
+    }
+    a {
+        text-decoration:none;
+        color:#333;
+    }           
+    a:hover {
+        text-decoration:underline;
+        color:#900;
+    }    
+    table {
+        border-collapse:collapse;
+        border-spacing:0;
+    }
+    fieldset,img {
+        border-style: none;
+            border-color: inherit;
+            border-width: 0;
+            margin-bottom: 0px;
+        }
+    td
+    {
+        color: #4D4D4D;
+        font:12px/1.5 Geneva,Arial,Helvetica,sans-serif;
+    }
+    input,textarea,select {
+        font-family:inherit;
+        font-size:inherit;
+        font-weight:inherit;
+    }
+    input,textarea,select {
+        *font-size:100%;
+    }
+    .txtinput
+    {
+        width:150px;height:20px;border:1px solid #C7C7C7;color:#000;
+    }
+    #txtcode
+    {
+        width:70px;height:20px;border:1px solid #C7C7C7;color:#000;
+    }
+    .error
+    {
+        color:#F00;font-weight:bold;
+    }
+.left{float:left;}
+</style>
+    <script type="text/javascript">
+        function Check() {
+            var username = document.getElementById("txtName").value;
+            var userpwd = document.getElementById("txtPwd").value;
+            var code = document.getElementById("txtCode").value;
+            if (username == "") {
+                alert("用户名不能为空！");
+                return false;
+            }
+            if (userpwd == "") {
+                alert("用户密码不能为空！");
+                return false;
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <form method="post" action="/Adminlogin/admininfo">
+    <table height="100%" cellspacing='0' cellpadding='0' width="100%" bgcolor='#002779' border='0'>
+    <tr>
+        <td align='middle'>
+            <table cellspacing='0' cellpadding='0' width='468' border='0'>
+                <tr><td><img height='23' src="/images/login_1.jpg" width='468'></td></tr>
+                <tr><td><img height='147' src="/images/login_2.jpg" width='468'></td></tr>
+            </table>
+            <table cellspacing='0' cellpadding='0' bgcolor="#FFFFFF" width='468' border='0'>
+                <tr>
+                    <td width='16'><img height='122' src="/images/login_3.jpg" width='16'></td>
+                    <td align='middle'>
+                        <table cellspacing='0' cellpadding='0' width='230' border='0'>
+
+                                <tr>
+                                  <td colspan="3" class="error"><span id="lbError"> </span></td>
+                                </tr>
+                                <tr height='27'>
+                                    <td></td>
+                                    <td>用户名&nbsp;</td>
+                                    <td>
+                                    <input name="txtName" type="text" maxlength="10" id="txtName" class="txtinput"/>
+                                    </td>
+                                </tr>
+                                <tr height='27'>
+                                    <td></td>
+                                    <td>密&nbsp;&nbsp;&nbsp;码&nbsp;</td>
+                                    <td><input name="txtPwd" type="password" maxlength="20" id="txtPwd" class="txtinput"/></td>
+                                </tr>
+                                <tr height='2'><td colspan='3'></td></tr>
+                                <tr>
+                                    <td colspan="3" align="center">
+<!--                                    <input type="submit"value="登陆"class="submit"style="background-image:/images/bt_login.gif"/>-->
+                                     <input type="image" name="ImageButton" id="ImageButton" src="/images/bt_login.gif" onclick="return Check();" style="border-width:0px;" />
+                                   </td>
+                                </tr>
+                        </table>
+                    </td>
+                    <td width='16'><img src="/images/login_4.jpg"></td>
+                </tr>
+            </table>
+            <table cellspacing='0' cellpadding='0' width='468' border='0'>
+                <tr>
+                    <td>
+                        <img height=16 src="/images/login_5.jpg">
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+    </form>
+</body>
+</html>

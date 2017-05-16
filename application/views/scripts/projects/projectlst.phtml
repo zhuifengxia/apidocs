@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="/css/reset.css" type="text/css" rel="stylesheet" />
+<link href="/css/admin.css" type="text/css" rel="stylesheet" />
+<script src="/Javascript/jquery-1.9.1.min.js" type="text/javascript"></script>
+<link rel="stylesheet" href="/css/tab.css" />
+<title>项目管理列表</title>
+<script type="text/javascript">
+ function btnsel()
+ {
+	 var selname=document.getElementById('selname').value;
+	 window.location.href="/Projects/projectlst?selname="+selname;
+ }
+</script> 
+</head>
+<body >
+<div style="width:1520px;height:600px;">
+ <?php require APPLICATION_PATH.'/views/scripts/adminlogin/head.phtml';?>  
+<div style="float:left;">
+  <?php require APPLICATION_PATH.'/views/scripts/adminlogin/left.phtml';?>         
+</div>
+<div class="clear:both;"></div>
+<div style="float:left;background:#F0F8FF;width:87.4%;height:900px;" >
+<table>
+<tr>
+<td height="30" >&nbsp;&nbsp;当前位置：<b>项目管理--项目列表</b></td>
+<td height="30">
+	<div style="margin-left:250px;">
+	项目名称搜索：<input type="text" id="selname" name="selname" style="width:200px;height:25px;color:gray;font-size:13px;" value="<?php echo $this->selname==NULL?'项目名称/参与人/项目简介':$this->selname?>" onclick="if(this.value=='项目名称/参与人/项目简介'){this.value='';}" onblur="if(this.value==''){this.value='项目名称/参与人/项目简介'}"/>
+	 <input type="button" onclick="btnsel();" value="GO"/>
+	</div>
+</td>
+</tr>
+</table>
+<hr />
+<div style="width:985px;height:40px;line-height:40px;margin-left:50px;font-size:18px;font-weight:bold;color:#0B54AD;">项目列表(<?=count($this->projectlst)?>)</div>
+<br/>
+<div style="font-size: 14px">       
+ <table class="mm" style="width:90%; margin:0 auto;">
+  <tr>
+  <th>项目名称</th><th >项目参与人</th><th>项目简介</th><th>操作</th>
+  </tr>
+  <?php foreach($this->projectlst as $project){?>
+  <tr>
+  <td><?=$project['Medi_ProjectName']?></td>
+  <td><?=$project['Medi_ProjectJoin']?></td>
+  <td><?=$project['Medi_ProjectInfo']?></td>
+ <td><?php if($this->loginuser['Medi_UserName']=="admin"){?><a href="/Projects/projectedit?projectid=<?=$project['Medi_ProjectID']?>&edittype=1">编辑</a>&nbsp;&nbsp;&nbsp;&nbsp;<?php }?><a href="/Api/interfacelst?projectid=<?=$project['Medi_ProjectID']?>&projectname=<?=$project['Medi_ProjectName']?>">查看接口文档</a>&nbsp;&nbsp;&nbsp;&nbsp;
+ <a href="/Data/datalst?projectid=<?=$project['Medi_ProjectID']?>&projectname=<?=$project['Medi_ProjectName']?>">查看数据库字典</a></td>
+  </tr>
+  <?php }?>
+ </table> 
+  <div style="padding-top:10px;margin-left:200px;"><?=$this->result?></div>
+</div>
+<div class="clear:both;"></div>
+</div>
+</div>
+</body>
+</html>

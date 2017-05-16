@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>后台管理</title>
+
+</head>
+<body style="background-image:url(/images/menu_bg.jpg);">
+<div style="font-size: 14px">
+<table align="center" width="190px" cellpadding="0" cellspacing="0">
+  <tr><td height="10"></td></tr>
+  <tr><td class="menu">项目管理</td></tr>
+  <tr>
+    <td class="list">
+       <table width="100%" cellpadding="0" cellspacing="0">
+        <tr>
+          <td><a href="/Projects/projectlst">项目列表</a></td>
+        <?php if($this->loginuser['Medi_Level']=="1"){?>
+         <td><a href="/Projects/projectedit?edittype=0">项目添加</a></td>
+        <?php }?>
+         </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<?php if($this->loginuser['Medi_Level']=="1"){?>
+<table align="center" width="190" cellpadding="0" cellspacing="0">
+  <tr><td height="12"></td></tr>
+  <tr><td class="menu">权限管理</td></tr>
+  <tr>
+    <td class="list">
+         <table width="100%" cellpadding="0" cellspacing="0">
+        <tr>
+          <td><a href="/Projects/competencelst">权限列表</a></td>
+           <td><a href="/Projects/competencedit?edittype=0">权限添加</a></td>
+        </tr>
+      	 <tr>
+          <td><a href="/Projects/userlst">用户管理</a></td>
+          <td><a href="/Projects/useredit?edittype=0">用户添加</a></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<?php }?>
+<table cellpadding="0" cellspacing="0">
+ <tr><td>&nbsp;</td></tr>
+</table>
+
+
+
+</div>
+
+</body>
+</html>

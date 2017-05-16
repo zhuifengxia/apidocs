@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="/css/reset.css" type="text/css" rel="stylesheet" />
+<link href="/css/admin.css" type="text/css" rel="stylesheet" />
+<title>后台管理</title>
+</head>
+<body >
+<div style="width:1520px;height:600px;">
+ <?php require APPLICATION_PATH.'/views/scripts/adminlogin/head.phtml';?>  
+<div style="float:left;">
+         <?php require APPLICATION_PATH.'/views/scripts/adminlogin/left.phtml';?>         
+</div>
+<div class="clear:both;"></div>
+<div style="float:left;background:#F0F8FF;width:87.4%;height:620px;" >
+<table>
+<tr><td height="30" >&nbsp;&nbsp;当前位置：<b>后台首页:欢迎界面</b></td></tr>
+</table>
+	<hr />
+	<div style="font-size: 14px">
+	<!-- 编辑 -->
+		<table>
+		  <tr>
+            <td align="center" height="300" width="500"><img src="/images/admin_p.gif"/></td>
+            <td >
+              <table cellpadding="0" cellspacing="0">
+               <tr>
+                 <td style="padding-top:0px; font-size:16px; font-weight:bold;">欢迎进入接口文档管理系统后台管理中心！</td>
+                </tr>
+               <tr>
+                  <td style="padding-top:10px;">当前用户：<span><?=$this->loginuser['Medi_UserName']?></span></td>
+                </tr>
+               <tr>
+                  <td style="padding-top:10px;">本次上线IP：<span><?php echo $_SERVER["REMOTE_ADDR"]?></span></td>
+                </tr>
+                <tr>
+                  <td style="padding-top:10px;">当前日期：<span><?php echo date("Y/m/d")?></span></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+        <!-- 编辑结束 -->
+	</div>
+</div>
+<div class="clear:both;"></div>
+</div>
+</body>
+</html>

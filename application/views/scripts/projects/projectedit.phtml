@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="/css/reset.css" type="text/css" rel="stylesheet" />
+<link href="/css/admin.css" type="text/css" rel="stylesheet" />
+<script src="/Javascript/jquery-1.9.1.min.js" type="text/javascript"></script>
+<link rel="stylesheet" href="/css/tab.css" />
+<title>项目管理列表</title>
+</head>
+<body >
+<div style="width:1520px;height:600px;">
+ <?php require APPLICATION_PATH.'/views/scripts/adminlogin/head.phtml';?>  
+<div style="float:left;">
+  <?php require APPLICATION_PATH.'/views/scripts/adminlogin/left.phtml';?>         
+</div>
+<div class="clear:both;"></div>
+<div style="float:left;background:#F0F8FF;width:87.4%;height:900px;" >
+<table>
+<tr>
+<td height="30" >&nbsp;&nbsp;当前位置：<b><a href="/Projects/projectlst">项目列表</a>--<?=$this->edittype==0?"项目添加":"项目编辑"?></b></td>
+</tr>
+</table>
+<hr />
+<?php if($this->edittype!=0){?>
+<div style="width:985px;height:40px;line-height:40px;margin-left:50px;font-size:18px;font-weight:bold;color:#0B54AD;">项目名：<?=$this->projectdetail['Medi_ProjectName']?></div>
+<?php }?>
+<br/>
+<div style="font-size: 14px"> 
+<form action="/Projects/projecteditsave?edittype=<?=$this->edittype?>" method="post">    
+ <table class="mm" style="width:70%; margin:0 auto;">
+ <tr>
+ <td>项目名称</td>
+ <td><input type="text" id="projectname" name="projectname" style="width:370px;height:25px;" value="<?=$this->projectdetail['Medi_ProjectName']?>"/></td>
+ </tr>
+ <tr>
+ <td>项目参与人</td>
+ <td><input type="text" id="projectjoin" name="projectjoin" style="width:370px;height:25px;" value="<?=$this->projectdetail['Medi_ProjectJoin']?>"/></td>
+ </tr>
+ <tr>
+ <td>项目简介</td>
+ <td><textarea id="projectinfo" name="projectinfo" rows="3" cols="50"><?=$this->projectdetail['Medi_ProjectInfo']?></textarea>
+ <input type="hidden" id="projectid" name="projectid" value="<?=$this->projectdetail['Medi_ProjectID']?>"/>
+ </td>
+ </tr>
+ <tr>
+ <td colspan="2">
+ <input type="submit" class="btn" value="<?=$this->edittype==0?"添加":"确认修改"?>"/>
+ <input type="button" class="btn" value="返回"/>
+ </td>
+ </tr>
+ </table> 
+ </form>
+  <div style="padding-top:10px;margin-left:200px;"><?=$this->result?></div>
+</div>
+<div class="clear:both;"></div>
+</div>
+</div>
+</body>
+</html>

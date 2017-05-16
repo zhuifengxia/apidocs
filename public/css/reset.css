@@ -1,0 +1,122 @@
+@charset "utf-8";
+/*---------------------------------
+ * Title:CSS_Reset
+ * version:reset.css
+ * Updated:2012.12.10
+ * Updated by: BY
+---------------------------------*/
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote{
+	margin:0;
+	padding:0;
+}
+body,button,input,select,textarea {
+	color: #000;  /*#636363*/
+    /*font:12px/1.5 Geneva,Arial,Helvetica,sans-serif;*/
+}
+a {
+	text-decoration:none;
+	color:#6e6e6e;
+}           
+a:hover {
+	color:#0077df;
+}    
+table {
+	border-collapse:collapse;
+	border-spacing:0;
+}
+fieldset,img {
+	border:0;
+}
+ol,ul {
+	list-style:none;
+}
+input,textarea,select {
+	font-family:inherit;
+	font-size:inherit;
+	font-weight:inherit;
+}
+input,textarea,select {
+	*font-size:100%;
+}
+
+textarea,select{
+	border:1px solid #C7C7C7;
+    padding:2px;
+}
+textarea{
+	overflow:auto;
+	resize:none;
+}
+caption,th {
+	text-align:left;
+}
+legend {
+	color:#000;
+}
+sup {
+	/*vertical-align:text-top;*/
+}
+sub {
+	/*vertical-align:text-bottom;*/
+}
+address,caption,cite,code,dfn,em,strong,th,var {
+	/*font-style:normal;
+	font-weight:normal;*/
+}
+/*h1,h2,h3,h4,h5,h6 {
+	font-size:100%;
+	font-weight:normal;
+}*/
+/*abbr,acronym {
+	border:0;
+	font-variant:normal;
+}*/
+/*blockquote, q {
+	quotes: none;
+}*/
+/*blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}*/
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+/*清除浮动*/
+.clearfix {
+	visibility:hidden;
+	font-size:0;
+	content:" ";
+	clear:both;
+	height:0;
+	line-height:0;	
+}
+* html .clearfix {/* IE6 */ 
+	zoom:1;
+	height:0;
+	line-height:0;
+}
+*:first-child+html .clearfix {/* IE7 */
+	zoom:1;
+	height:0;
+	line-height:0;
+}
+.clearfix{display:inline-block;}
+/* Hide from IE Mac */
+.clearfix {display:block;}
+/* End hide from IE Mac */
+a.light{
+	color:#0971ba;
+}
+a.title{
+	text-decoration:none;
+	color:#000;
+}           
+a.title:hover {
+	color:#0077df;
+} 
+a.by:link {color: #6e6e6e;text-decoration:none;}     /* 未访问的链接 */
+a.by:visited {color: #0077df;text-decoration:none;}  /* 已访问的链接 */
+a.by:hover {color: #0077df;text-decoration:none;}    /* 当有鼠标悬停在链接上 */
+a.by:active {color: #0077df;text-decoration:none;}   /* 被选择的链接 */

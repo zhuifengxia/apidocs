@@ -1,0 +1,40 @@
+body{font-family:"MicroSoft YaHei","Arial","Simsun","宋体";font-size:12px;font-weight:normal;color:#000080; margin-top: 0px;}
+#divhead{
+    background-image: url(/Medicool/Image/header-bg.png);
+    height:53px;
+    text-align: center;   
+    padding-top: 15px;
+}
+.headera{
+    color: white;
+    margin-left: 50px;
+}
+.main-header{width:100%;min-width:980px;height:53px;text-align:center;background:url(/Image/header-bg.png) repeat-x left top}
+.main-header ul{width:960px;margin:0px auto;list-style-type:none;}
+.main-header li{float:left;width:auto;padding:0px 12px;line-height:50px;color:white}
+.main-header a:link{color:white;font-weight:bold}
+.main-header a:visited{color:white;font-weight:bold}
+
+.main-footer{width:100%;min-width:980px;margin:0px auto;text-align:left;clear:both;border-top:1px solid #666;border-bottom:80px solid #D9D9FB}
+.main-footer-inner{width:960px;height:150px;padding:30px 0px 60px 0px;margin:0px auto;color:#888;}
+.main-footer-inner a:link{color:#888}
+.main-footer-inner a:visited{color:#888}
+.main-footer-inner a:hover{color:#454545}
+
+.page-uc{width:auto;min-width:200px;height:auto;border:1px solid #ccc;margin-right:20px;float:left;margin-left: 30%;margin-top: 20px;}
+.page-uc-inner {width:160px;height:auto;margin:20px;list-style-type:none;}
+.page-uc-inner li{height:33px;line-height:30px}
+.page-uc-inner a:link{display:block;height:33px;width:160px}
+.page-uc-inner a:visited{display:block;height:33px;width:160px}
+.page-uc-inner a:hover{display:block;height:33px;width:160px;background:#f0f0f0;text-decoration:none}
+.table2 td{text-align:center;height:27px; font-size: small;}
+.table2 th{ width: 70px;}
+.font-title{font-size:18px;font-weight:bold; margin-top: 20px;}
+.font-title2{font-size:15px;font-weight:bold; margin-top: 20px;}
+.footer{
+    text-align: center;
+}
+.content
+{
+    height: 40px;
+}

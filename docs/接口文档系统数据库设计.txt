@@ -1,0 +1,64 @@
+项目表   Medi_Project
+Medi_ProjectID     项目自增ID
+Medi_ProjectName	  项目名称
+Medi_ProjectJoin   项目参与人
+Medi_ProjectInfo    项目简介
+
+
+接口文档列表  Medi_Interface
+Medi_InterfaceID    接口自增ID
+Medi_InterfaceName   接口文档名称
+Medi_InterfaceVersion   接口文档版本号
+Medi_InterfaceCreateName   接口文档创建人
+Medi_InterfaceCreateTime   接口创建时间
+Medi_InterfaceUpdateTime    接口文档更新时间
+Medi_InterfaceUpdateName   接口文档修改人
+Medi_ProjectID    接口文档所属项目ID
+
+
+接口表   Medi_Api
+Medi_ApiID      接口自增ID
+Medi_ApiName     接口名称
+Medi_ApiBelongs  接口所属模块
+Medi_ApiCreateName   接口编写人
+Medi_ApiCreateTime   接口创建时间
+Medi_ApiUpdateTime   接口修改时间
+Medi_ApiUpdateName   接口修改人
+Medi_ApiAction    接口作用
+Medi_ApiUrl       接口实例地址
+Medi_ApiFormat     接口支持格式
+Medi_ApiRequest    接口请求方式
+Medi_ApiResult    接口返回结果
+Medi_InterfaceID   接口所属文档ID
+
+域名地址表  Medi_Domain
+Medi_DomainID    域名自增ID
+Medi_DomainName  域名地址名称
+Medi_InterfaceID  域名地址所属接口文档ID
+
+接口请求参数表   Medi_RequestParameter
+Medi_RequestID    请求参数自增ID
+Medi_RequestName   请求参数名称
+Medi_RequestType    请求参数类型
+Medi_RequestInfo    请求参数说明
+Medi_ParameterType   参数类型0是请求参数；1返回具体参数说明
+Medi_ApiID   所属接口ID
+
+
+
+
+接口返回通用数据说明    Medi_Universal
+Medi_CommonID   返回通用参数自增ID
+Medi_CommonName   返回通用参数名称
+Medi_CommonType    返回通用参数类型
+Medi_CommonValue    返回通用参数的value值
+Medi_CommonInfo     返回通用参数说明
+Medi_ApiID   所属接口ID
+
+
+
+权限管理表   Medi_Competence
+Medi_CompetenceID    权限信息自增ID
+Medi_UserName      权限用户名
+Medi_UserPwd     权限密码
+Medi_VisibleProject    可见项目ID

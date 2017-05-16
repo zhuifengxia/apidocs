@@ -1,0 +1,94 @@
+@charset "utf-8";
+.warn{color:#F00;padding-left:5px;}
+.txtinput
+{
+    border:1px solid #C7C7C7;
+    padding:2px;
+    width:400px;
+}
+.txtshow
+{
+    border:1px solid #C7C7C7;
+    padding:2px;
+    width:200px;
+}
+.btn
+{
+    border:1px solid #C7C7C7;
+    padding:0 3px;
+    vertical-align:middle;
+    height:22px;
+    line-height:22px;
+    cursor:pointer;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 0;
+}
+#foot{
+	color:#FFF;
+	font-size:14px;
+	text-align:center;
+}
+.menu{
+	background-image:url(../images/menu_bt.jpg);
+	background-repeat:no-repeat;
+	height:22px;
+	padding-left:20px;
+	font-weight:bold;
+	width:150px;
+}
+.list{
+   padding-left:8px;
+   line-height:22px;	
+}
+.bjq{
+    width:700px;height:400px;visibility:hidden;
+}
+#mainCon td
+{
+    padding:8px 10px;
+    vertical-align:middle;
+    border-bottom:1px dashed #C7C7C7;
+}
+.mainCon table
+{
+    vertical-align:middle;
+    border-bottom:1px dashed #C7C7C7;
+    text-align:center;
+}
+.mainCon table td
+{
+    padding:5px 0;
+}
+.right
+{
+    text-align:right;
+}
+.sc
+{
+	float:left;
+}
+.xz
+{
+    font-weight:bold;
+    color:#01359B;
+}
+.Admin_Table_Title th
+{
+    font-size:16px;
+    color:#000;
+    font-weight:bold;
+    font-family:黑体;
+    background-color:#CCC;
+    text-align:center;
+    padding:3px 0;
+}
+.bots{}
+.search{
+	padding-left:150px;
+}
+.lbfg
+{
+    height:2px;
+    border-top:solid #666 1px;
+}

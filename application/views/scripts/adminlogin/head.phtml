@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>后台管理</title>
+</head>
+<body>
+<table cellspacing=0 cellpadding=0 width="100%" background="/images/header_bg.jpg" border='0'>
+    <tr>
+        <td width='260' valign="top"><a href=""><img height='56' src="/images/header_left.jpg" width='260'/></a></td>
+        <td style="font-weight: bold;color:#fff;padding-top:20px" align='middle'>
+            当前用户：<span id="ctl00_lbadmin"><?=$this->loginuser['Medi_UserName']?></span> &nbsp;&nbsp;
+                   
+            <a style="color:White;font-weight:bold;" href="#">修改账号信息</a>
+            
+            &nbsp;&nbsp;
+            <a style="color:White;font-weight:bold;" href="/Adminlogin/admininfo">[返回首页]</a>
+            &nbsp;&nbsp;
+           <a onclick="return confirm(&quot;你确定退出管理系统吗？&quot;) ;" id="ctl00_LBQuit" href="/Adminlogin/login">[退出管理]</a>
+
+        </td>
+        <td align='right' width='268' valign="top">
+            <img height='56' src="/images/header_right.jpg" width='268'/>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
